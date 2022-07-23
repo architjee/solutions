@@ -1,4 +1,5 @@
 # Program for coding blocks question String Sort
+
 n = int(input());
 bigList = []
 for i in range(n):
