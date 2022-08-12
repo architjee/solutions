@@ -2,7 +2,7 @@ n = int(input())
 bigList = list(map(int, input().split()))
 bigList.sort()
 prev = bigList[0]
-answer = 1
+answer = 1  
 # Now we will traverse in the array from 1st position.
 length = 1
 for i in range(1, n):
