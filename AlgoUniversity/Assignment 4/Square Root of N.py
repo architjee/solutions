@@ -6,7 +6,8 @@ def findSquareBetween(suspect, target):
     high = suspect
     while True:
         root = (low + high) / 2.0
-        if root * root == target or abs(root * root - target) < 0.000000001:
+        currentSquare = root*root
+        if currentSquare == target or abs(currentSquare - target) < 0.000000001:
             return root
         elif root * root > target:
             high = root
