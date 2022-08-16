@@ -35,7 +35,7 @@ while llX<=ulX and llY<=ulY and ulX<q and ulY<p and llX>=0 and llY:
         y, x = printUtilFunc(x, y)
         # When we have finished printing. Let us modify the limits somehow.
 
-    elif currentDirection==1):
+    elif currentDirection==1:
         # moving right
         moveX = 1
         moveY = 0
