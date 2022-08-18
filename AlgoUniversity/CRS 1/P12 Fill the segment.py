@@ -6,22 +6,22 @@ for _ in range(q):
     indexToFlip = int(input()) - 1
     array[indexToFlip] = 1
 # We wish to use the concept of Sliding Window.
-currentZeros = 0
-for i in range(0, k + 1):
-    if array[i] == 0:
-        currentZeros += 1
+currentOnes = 0
+for i in range(0, k):
+    if array[i] == 1:
+        currentOnes += 1
 low = 0
 high = k
-ans = k - currentZeros
-print("ans at line 16 id :", ans)
+ans = currentOnes
+
 while high < n:
     # Now, we will add an element.
-    if array[high] == 0:
-        currentZeros += 1
-    # We must also quickly remove an element from our zero count .
-    if array[low] == 0:
-        currentZeros -= 1
+    if array[high] == 1:
+        currentOnes += 1
+    # We must also quickly remove an element from our one count .
+    if array[low] == 1:
+        currentOnes -= 1
     low += 1
     high += 1
-    ans = min(ans, k - currentZeros)
-    print(ans, currentZeros)
+    ans = min(ans, currentOnes)
+print(ans)
