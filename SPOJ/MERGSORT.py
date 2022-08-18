@@ -16,7 +16,7 @@ def mergeTwoSmall(x, y):
 
 
 def mergeSort(array):
-    if(len(array)==1):
+    if (len(array) == 1):
         return array
     if array:
         # Then only we would like to perform some computation.
@@ -25,8 +25,17 @@ def mergeSort(array):
         array = mergeTwoSmall(x, y)
         return array
     return array
+
+
+def printArrayFunc(array):
+    for x in array:
+        print(x, end=' ')
+
+
 def main():
-    array= [100,16,15,124,36,93,456,15,34]
-    array =mergeSort(array)
-    print(array)
+    array = list(map(int, input().split()))
+    array = mergeSort(array)
+    printArrayFunc(array)
+
+
 main()
