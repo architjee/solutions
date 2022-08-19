@@ -1,7 +1,7 @@
 n = int(input())
 distancesArr = map(int, input().split())
 # Calculation of prefix Sum array.
-prefix = [0] * n
+prefix = [0 for i in range(n)]
 prev = 0
 for index, value in enumerate(distancesArr):
     prev += value
