@@ -1,19 +1,14 @@
-# We are given N nodes, representing a Adjacency matrix.
+# We are given n integers
 n = int(input())
-adjList = [[]]
-for i in range(1, 1+n):
+adjList = []
+for i in range(n):
     line = list(map(int, input().split()))
-    for index, j in enumerate(line):
-        if (j==0):
-            continue
-        if len(adjList) > i:
-            # Then we can add this directly. BY saying
-            adjList[i].append(index+1)
-        else:
-            adjList.append([index+1])
-
-for vertice in range(1, len(adjList)):
-    print(str(vertice)+":", end=' ')
-    for edges in adjList[vertice]:
-        print(edges, end=' ')
+    adjList.append([])
+    for index, x in enumerate(line):
+        if x:
+            adjList[i].append(index)
+for i in range(len(adjList)):
+    print(str(i+1)+":", end=' ')
+    for j in adjList[i]:
+        print(j+1, end=' ')
     print()
