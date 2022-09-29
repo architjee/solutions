@@ -10,12 +10,21 @@ for _ in range(numRoads):
         citiesDict[v] = len(citiesDict)
     matrix[citiesDict[u]][citiesDict[v]] = roadName
 source, target = input().split()
-def printPath(path):
-    print(len(path))
-    for x in path:
-        print(x)
-def bfsAlgo(source, target, matrix):
+def printPath(parentDict, target, source, matrix):
     path = []
+    path.append(target)
+    node = target
+    while node in parentDict:
+        parent = parentDict[node]
+        path.append(parent)
+        if parent == source:
+            break
+        node = parent
+    print(len(path)-1)
+    for i in range(len(path)-1):
+        print(matrix[path[len(path)-i-1]][path[len(path)-i-2]])
+def bfsAlgo(source, target, matrix):
+    parentDict = {}
     sourceNode = citiesDict[source]
     targetNode = citiesDict[target]
     visited = [False for x in range(numCities)]
@@ -28,11 +37,12 @@ def bfsAlgo(source, target, matrix):
         for cityCode, roadName in enumerate(matrix[front]):
             if roadName!=-1:
                 if cityCode not in q and not visited[cityCode]:
+                    parentDict[cityCode] = front
                     distances[cityCode] = distances[front] + 1
                     visited[cityCode] = True
                     q.append(cityCode)
     if distances[targetNode] != float('inf'):
-        printPath(path)
+        printPath(parentDict, targetNode, sourceNode, matrix)
+    else:
+        print("Impossible")
 bfsArray = bfsAlgo(source, target, matrix)
-
-print("Debugging ", matrix)
