@@ -1,5 +1,7 @@
+# Will comment out the line from LeetCode template
 class Solution:
-    def permute(self, nums: List[int]) -> List[List[int]]:
+    def permute(self, nums):
+    # def permute(self, nums: List[int]) -> List[List[int]]:
         permutations = []
         def createPermutations(nums, i):
             if i==len(nums)-1:
@@ -11,4 +13,3 @@ class Solution:
                 nums[i], nums[x] = nums[x], nums[i]
         createPermutations(nums, 0)  
         return permutations
-                
