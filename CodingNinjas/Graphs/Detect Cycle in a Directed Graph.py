@@ -17,10 +17,10 @@ def isCyclic(edges, v, e):
         color[node] = GREY
         visited[node] = True
         for child in adjList[node]:
-            if child != parent:
-                visited[child]=True
-                if dfs(adjList, child, node, visited):
-                    return True
+       
+            visited[child]=True
+            if dfs(adjList, child, node, visited):
+                return True
         color[node]=BLACK
         return False
     def getFirstFalse(visited):
