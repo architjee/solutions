@@ -31,15 +31,10 @@ def mainFunc():
                         counte += 1
         return counte
     result = thesarus[n]
-    minTillNow = float('inf')
-    combinationSafe = result
-    for eachPermutation in permutations(result):
-        valueOfPermutation = evaluatePermutaion(eachPermutation)
-        if valueOfPermutation<minTillNow:
-            minTillNow = valueOfPermutation
-            combinationSafe = eachPermutation[0:]
+    result = result[1:]+[result[0]]
     
-    for ele in combinationSafe:
+    
+    for ele in result:
         print(ele, end=' ')
     print()
 
