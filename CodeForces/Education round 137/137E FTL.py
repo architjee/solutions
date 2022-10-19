@@ -10,6 +10,7 @@ while health>0:
     attackPower = 0
     # We can fire l1 when globalClock is at every globalClock%reloadTime1==0 time.
     # Or we can say in other terms l1 fired at reloadTime * 1 + reloadTime *2
+    print("GlobalClock is before attacking", globalClock, " and health is ", health)
     if n1*reloadTime1 > n2*reloadTime2:
         # Fire l2
         globalClock += n2*reloadTime2-globalClock
@@ -27,4 +28,6 @@ while health>0:
         n2+=1
         attackPower = p1 + p2
     health-=(attackPower-shield)
+    print("GlobalClock after attack", globalClock)
+
 print(globalClock)
