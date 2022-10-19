@@ -1,22 +1,25 @@
+# We are given n
 n = int(input())
 
-# Now everyone has a boss
-adjList = [[] for x in range(n+1)]
-bossDict = {}
-inpList = list(map(int,input().split()))
-i=0
-for x in range(2, n):
-    bossDict[x]=inpList[i]
-    adjList[inpList[i]].append(x)
+bossArray = list(map(int, input().split()))
+adjList = [[] for j in range(n+1)]
+i= 2
+for x in bossArray:
+    adjList[x].append(i)
     i+=1
+noOfPeepsUnderThisGuy = [0 for x in range(n+2)]
+# Note we are call this as peopleUnderGuy is inclusive of the guy itself always.
 
-def peopleUnderThisMan(adjList, man):
-    print("Function is being called for adjList", adjList, " and man as ", man)
-    if not adjList[man]:
-        return 1
-    sumation = 0
-    for x in adjList[man]:
-        sumation += peopleUnderThisMan(adjList, x)
-    return sumation+1
-result = peopleUnderThisMan(adjList, 1)
-print(result)
+def peopleUnderGuy(adjList,node):
+    peopleUnder = 0
+    if len(adjList)>node:
+        for child in adjList[node]:
+            peopleUnder += peopleUnderGuy(adjList, child)
+        # Finally set the people under this guy to the array equivalent.
+    noOfPeepsUnderThisGuy[node] = peopleUnder
+    return peopleUnder+1
+# what if there are only 1 people
+noOfPeepsUnderThisGuy[1]=peopleUnderGuy(adjList, 1) -1 
+for i in range(1, n):
+    print(noOfPeepsUnderThisGuy[i], end=' ')
+print(0)
