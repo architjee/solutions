@@ -16,22 +16,40 @@ def convValToBinary(val):
         ans += str(val%2)
         val //= 2
     return ans[::-1]
+def indexOfFirstZero(s):
+    found = False
+    for index, x in enumerate(s):
+        if x=='0':
+            found = True
+            return found, index
+        
+    return found, -1
 def mainFunc():
     n = int(input())
     s = input()
     value = convStringToVal(s)
+    if not value:
+        print(0)
+        return
     s = convValToBinary(value);
+    
+    size = len(s)
     # Now we have s with leading zeros dropped.
-    solved = False
-    for index, val in enumerate(s):
-        if val=='0':
-            # We have found our position.
-            print("The index we are getting this is", index)
-            print(convValToBinary(value | (value>>index)))
-            solved = True
-            break
-    if not solved:
-        print(s)
+    maxOR = value
+   
+    s1 = s
+    found, zeroPos =  indexOfFirstZero(s1)
+    if found:
+        expectedSizeS2 = size - zeroPos
+        # To check for every substring of length expectedSizeS2
+        for i in range(0, expectedSizeS2):
+            s2 = s[i:i+expectedSizeS2]
+            maxOR = max(maxOR, value|convStringToVal(s2))
+    else:
+        # Means zero is not found, which is good as well.
+        pass
+    print(convValToBinary(maxOR))
+
 t = 1
 for testcase in range(t):
     mainFunc()
