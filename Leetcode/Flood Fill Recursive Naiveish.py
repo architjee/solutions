@@ -1,3 +1,4 @@
+from typing import *
 class Solution:
     def floodFill(self, image: List[List[int]], sr: int, sc: int, incomingColor: int) -> List[List[int]]:
         if image[sr][sc]==incomingColor:
