@@ -31,9 +31,13 @@ def reverseLinkedList(head):
     dummy_head.next = head
     sublist_head.next = head
     def getDepth(node):
-        if node==None:
+        if not node:
             return 0
-        return getDepth(node.next)+1
+        size = 0
+        while node:
+            node = node.next
+            size+=1
+        return size
     finish = getDepth(dummy_head)-1
     # Using the generic Reverse Linked List template.
     start = 1
