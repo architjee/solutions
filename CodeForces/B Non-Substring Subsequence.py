@@ -1,7 +1,7 @@
 #TODO This question 
 def mainFunc():
     def isThereASubsequenceEqualToThisSubstring(bigString , substring):
-
+        pass
     n, q= map(int, input().split())
     s= input()
     for query in range(q):
