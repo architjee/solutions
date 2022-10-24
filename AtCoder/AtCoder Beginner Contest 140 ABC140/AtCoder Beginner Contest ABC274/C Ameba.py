@@ -1,12 +1,13 @@
-#TODO
-class Node:
-    def __init__(self, val):
-        self.val = val
-        self.left,self.right = None, None
-# After seeing the editorial realized that it was a very simple problem with looked like heap, but is done via tree.
+# With reference to code by Koutetsu666
+from collections import defaultdict
+
 n = int(input())
-tree = []
-for node in map(int, input().split()):
-    newNode = Node(node)
-    tree.append(newNode)
-print(tree)
+A = [0] + list(map(int, input().split()))
+d = defaultdict(int)
+for i in range(1, n+1):
+    a=A[i]
+    d[2*i]=d[a]+1
+    d[2*i+1]=d[a]+1
+
+for i in range(1,2*n+2):
+    print(d[i])
