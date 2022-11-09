@@ -133,3 +133,27 @@ def reverse_words_in_a_sent(sentence):
         mnemonics_arr, partial_number=[], [None]*len(phone_number)
         mnemonicsHelper(0)
         return mnemonics_arr
+
+
+# Replace a with two dd and remove b in a string.
+def replace_and_remove(size, s):
+    # removing b and count a's
+    write_idx, a_count = 0, 0
+    for i in range(size):
+        if s[i]!='b':
+            s[write_idx]=s[i]
+            write_idx+=1
+        if s[i]=='a':
+            a_count+=1
+    cur_idx = write_idx-1
+    write_idx+=a_count-1
+    final_size = write_idx+1
+    while cur_idx>=0:
+        if s[cur_idx]=='a':
+            s[write_idx-1]=s[write_idx]='d'
+            write_idx-=2
+        else:
+            s[write_idx]=s[cur_idx]
+            write_idx-=1
+        cur_idx-=1
+    return final_size
