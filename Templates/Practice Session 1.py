@@ -102,3 +102,20 @@ def construct_from_base(num_as_int, base):
 # Implment spreadsheet column encoding . 
 def spreadsheet_decode_col_id(col):
     return functools.reduce(lambda result, c : result*26 + ord(c)-ord('A')+1, col, 0)
+
+# Implement reverse all words in a sentence
+def reverse_words_in_a_sent(sentence):
+    sentence.reverse()
+
+    def reverse_range(iter, start, end):
+        while start<end:
+            iter[start], iter[end] = iter[end], iter[start]
+            start, end=start+1, end-1
+    start = 0
+    while True:
+        end = sentence.find(' ', start)
+        if end<0:
+            break
+        reverse_range(sentence, start, end-1)
+        start=end+1
+    reverse_range(sentence, start, len(s)-1)
