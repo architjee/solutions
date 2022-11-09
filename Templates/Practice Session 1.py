@@ -119,3 +119,17 @@ def reverse_words_in_a_sent(sentence):
         reverse_range(sentence, start, end-1)
         start=end+1
     reverse_range(sentence, start, len(s)-1)
+
+    # Compute all the mnemonics for a phone number
+    def mnemonics(phone_number):
+        T = ("0", "1", 'ABC' )# .. and so on.
+        def mnemonicsHelper(digit_idx):
+            if digit_idx==len(phone_number):
+                mnemonics_arr.append(''.join(partial_number))
+            else:
+                for c in T[phone_number[digit_idx]]:
+                    partial_number[digit_idx]= c
+                    mnemonicsHelper(digit_idx+1)
+        mnemonics_arr, partial_number=[], [None]*len(phone_number)
+        mnemonicsHelper(0)
+        return mnemonics_arr
