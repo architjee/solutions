@@ -18,3 +18,20 @@ class ListNode:
     def __init__(self, data=0, next=None):
         self.data= data
         self.next = next
+
+# Check if a string is a plaindromne in Python
+s = "hello"
+def check_palindronme(s):
+    return all(s[i]==s[~i] for i in range(len(s)//2))
+
+import functools, string
+# Evaluate num_as_string in base b1
+# Given base=b1
+b1=4
+num_as_string= "1321"
+is_negative = num_as_string[0]=="-"
+num_as_int = functools.reduce(
+    lambda val, c: val*b1 + string.hexdigits.index(c),
+     num_as_string[is_negative:], 0
+    
+)
