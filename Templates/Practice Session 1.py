@@ -32,6 +32,19 @@ num_as_string= "1321"
 is_negative = num_as_string[0]=="-"
 num_as_int = functools.reduce(
     lambda val, c: val*b1 + string.hexdigits.index(c),
-     num_as_string[is_negative:], 0
-    
+     num_as_string[is_negative:], 
+     0
 )
+
+# Convert int to string in python
+def convert_int_to_string(x):
+    if x<0:
+        x = -x
+        is_negative = True
+    result = []
+    while True:
+        result.append(chr(ord('0')+x%10))
+        x = x//10
+        if x==0:
+            break
+    return ('-' if is_negative else '') + ''.join(reversed(result))
