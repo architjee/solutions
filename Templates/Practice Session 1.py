@@ -63,3 +63,16 @@ def convert_string_to_int(num_as_string):
     if is_negative:
         return result*(-1)
     return result
+
+
+
+# Convert from base b1 to base b2
+def convert_b1_to_b2(num_as_string, b1, b2):
+    if num_as_string[0]=='-':
+        is_negative=True
+    num_as_int = functools.reduce(
+        lambda val, c: val*b1+string.hexdigits.index(c.lower()), num_as_string[is_negative:], 0
+    )
+    def construct_from_base(num_as_int, base):
+        return '' if num_as_int==0 else construct_from_base(num_as_int//base, base)+string.hexdigits[num_as_int%base].upper()
+    return ('-' if is_negative else '')+('0' if num_as_int==0 else construct_from_base(num_as_int, b2))
