@@ -94,3 +94,7 @@ def look_and_say(n):
     for _ in range(1, n):
         s = next_number(s)
     return s
+
+# Implement construct from base functino
+def construct_from_base(num_as_int, base):
+    return '' if num_as_int ==0 else construct_from_base(num_as_int//base, base) + string.hexdigits[num_as_int%base].upper()
