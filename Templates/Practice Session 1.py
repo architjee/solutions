@@ -98,3 +98,7 @@ def look_and_say(n):
 # Implement construct from base functino
 def construct_from_base(num_as_int, base):
     return '' if num_as_int ==0 else construct_from_base(num_as_int//base, base) + string.hexdigits[num_as_int%base].upper()
+
+# Implment spreadsheet column encoding . 
+def spreadsheet_decode_col_id(col):
+    return functools.reduce(lambda result, c : result*26 + ord(c)-ord('A')+1, col, 0)
