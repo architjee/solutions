@@ -76,3 +76,21 @@ def convert_b1_to_b2(num_as_string, b1, b2):
     def construct_from_base(num_as_int, base):
         return '' if num_as_int==0 else construct_from_base(num_as_int//base, base)+string.hexdigits[num_as_int%base].upper()
     return ('-' if is_negative else '')+('0' if num_as_int==0 else construct_from_base(num_as_int, b2))
+
+# Solve Look and say problem:
+def look_and_say(n):
+    def next_number(s):
+        i ,count =0, 1
+        result=[]
+        while i<len(s):
+            while i+1<len(s) and s[i]==s[i+1]:
+                i+=1
+                count+=1
+            result.append(str(count)+s[i])
+            i+=1
+            count=1
+        return ''.join(result)
+    s='1'
+    for _ in range(1, n):
+        s = next_number(s)
+    return s
