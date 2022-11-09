@@ -48,3 +48,18 @@ def convert_int_to_string(x):
         if x==0:
             break
     return ('-' if is_negative else '') + ''.join(reversed(result))
+
+def convert_string_to_int(num_as_string):
+    if not num_as_string:
+        return 0
+    is_negative=False
+    result = 0
+    base = 10
+    for c in num_as_string:
+        if c=='-':
+            is_negative=True
+            continue
+        result = result*base + (ord(c)-ord('0'))
+    if is_negative:
+        return result*(-1)
+    return result
