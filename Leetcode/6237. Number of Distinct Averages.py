@@ -3,9 +3,7 @@ def distinctAverages(nums):
         while nums:
             mine = min(nums)
             maxe = max(nums)
-            print("mine", mine, "max", maxe )
-            avg = (mine+maxe)/2;
-            print(avg)
+            avg = (mine+maxe)/2
             avgSet.add(avg)
             nums.remove(mine)
             nums.remove(maxe)
