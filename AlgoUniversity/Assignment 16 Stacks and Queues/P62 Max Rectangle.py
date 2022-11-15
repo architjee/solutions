@@ -13,7 +13,7 @@ def createNearestSmallestLeft(arr):
             stk.append(idx_height(index, x))
             result.append(-1)
         else:
-            while stk and stk[-1].height>x:
+            while stk and stk[-1].height<=x:
                 stk.pop()
             if not stk:
                 result.append(-1)
