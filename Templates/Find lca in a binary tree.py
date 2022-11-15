@@ -1,3 +1,4 @@
+import collections
 def lca(tree, node0, node1):
     Status = collections.namedtuple('Status', ('num_target_nodes', 'node'))
     def lca_helper(tree, node0, node1):
