@@ -3,7 +3,7 @@ arr = list(map(int, input().split()))
 stk = []
 result = []
 # Consider an invariant
-# That elements in the dequeue will always be in the will always be of the form
+# That elements in the stack will always be in the will always be of the form
 # 10 8 7 6 5
 for x in arr:
     if not stk:
