@@ -29,3 +29,8 @@
 # 13 14 15 16 
 
 ## P3 Find the transpose of a matrix
+##      By defination rows and columns are interchanged.
+## 1 2 3
+## 4 5 6
+## 7 8 9 
+## Both ways are allowed, you can create a new matrix or do it in place.
