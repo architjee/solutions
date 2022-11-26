@@ -28,3 +28,5 @@ def m2(mat):
 print(m2(mat))
 
 # Both methods test cases passed. Good job.
+# To think of this method a bit more, try to think that you need to take mirror of the matrix along the diagonal.
+# 
