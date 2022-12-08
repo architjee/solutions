@@ -1,7 +1,6 @@
-from typing import *
 
 class Solution:
-    def minMoves2(self, nums: List[int]) -> int:
+    def minMoves2(self, nums) -> int:
         # The question is trying to mess with me,
         # After looking at a solution, Now I know that I have to find a median,
         nums.sort()
