@@ -1,17 +1,39 @@
 from typing import *
 
 
-# This is the TLE solution
 class Solution:
     def kSmallestPairs(self, nums1: List[int], nums2: List[int], k: int) -> List[List[int]]:
-        ## Think the brute force solution, 
-        ## if n is size of nums1 and m is size of nums2
-        ## n*m(log(n*m))
-        if not k:
-            return []
-        all_pairs = []
-        for n1 in nums1:
-            for n2 in nums2:
-                all_pairs.append([n1,n2])
-        all_pairs.sort(key=lambda x: sum(x))
-        return all_pairs[:k]
+        ## Second attempt I think we can do this via sorting both the nums1 and nums2
+        ## Also keeping two pointers,
+        nums1.sort()
+        nums2.sort()
+        ptr_1, ptr_2 = 0, 0
+        result_set = []
+        firstIteration = True
+        while ptr_1<len(nums1) and ptr_2<len(nums2) and k>0:
+            result_set.append([nums1[ptr_1], nums2[ptr_2]])
+            
+            if ptr_1<len(nums1)-1 and ptr_2<len(nums2)-1:
+                if nums1[ptr_1+1]+nums2[ptr_2] < nums1[ptr_1]+nums2[ptr_2+1]:
+                    ptr_1+=1
+                else:
+                    ptr_2+=1
+            elif ptr_1<len(nums1)-1:
+                ptr_1+=1
+            else:
+                ptr_2+=1
+            
+            k-=1
+        print(ptr_1, ptr_2)
+
+        while ptr_1<len(nums1) and k>0 and ptr_2<len(nums2):
+            result_set.append([nums1[ptr_1], nums2[ptr_2]])
+            ptr_1+=1
+            k-=1
+        while ptr_2<len(nums2) and k>0 and ptr_1<len(nums1):
+            result_set.append([nums1[ptr_1], nums2[ptr_2]])
+            ptr_2+=1
+            k-=1
+        
+        return result_set    
+            ## Select any one element:
