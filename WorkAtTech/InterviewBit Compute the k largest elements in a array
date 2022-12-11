@@ -1,0 +1,11 @@
+class Solution:
+    # @param A : list of integers
+    # @param B : integer
+    # @return a list of integers
+    def solve(self, A, B):
+        ## Given A is the size of array and B is the no. of largest elements we need to extract from A.
+        if B<1:
+            return []
+        ## An unoptimized solution could be sorting.
+        A.sort(reverse=True)
+        return A[:B]
