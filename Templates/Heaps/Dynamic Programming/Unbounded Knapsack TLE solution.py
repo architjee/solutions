@@ -30,7 +30,7 @@ class Solution:
                 value_without_this_item = helperFunction(item_index - 1, available_capacity)
                 ## means the value doesn't exists so we will compute it.
                 value_with_this_item = 0
-                k=1
+                k=available_capacity//item_index[item_index].weight
                 ## Let us say we are adding this item k times,
                 ## The invariant would be that,
                 while (k*items[item_index].weight) <= available_capacity :
