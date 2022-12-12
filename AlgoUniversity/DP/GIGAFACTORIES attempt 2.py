@@ -12,8 +12,7 @@ else:
     def maximize_profit_under_max_cost(n, max_cost):
         for item_idx in range(0, n):
             for allowed_cost in range(0,max_cost+1):
-                if item_idx==0 or allowed_cost==0:
-                    profit_matrix[1][allowed_cost] = 0
+                
                 ## There can be only 2 cases :
                 c1=0
                 if cost_array[item_idx]<allowed_cost:
