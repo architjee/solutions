@@ -11,4 +11,4 @@ def v3(A, key):
 key = 4
 
 lower_limit = v3(arr, key)
-print(lower_limit, bisect.bisect_right(arr, key)-1)
+print(lower_limit, bisect.bisect_right(arr, key)-1) 
