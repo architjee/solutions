@@ -22,7 +22,7 @@ class LRUCache:
             ## Key exist in the hashtable so we will pop it out and push it again.
             existing_value = self.hashtable.pop(key)
         if len(self.hashtable)>=self.capacity:
-            self.hashtable.popitem(last=True)
+            self.hashtable.popitem(last=False)
         self.hashtable[key] = value
 
 # main
