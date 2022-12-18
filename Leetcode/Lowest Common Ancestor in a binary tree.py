@@ -20,7 +20,7 @@ class Solution:
             num_nodes = int(p==subtree)+int(q==subtree) + left_result.num_nodes + right_result.num_nodes
             ancestor = None
             if num_nodes==2:
-                anscestor = subtree
+                ancestor = subtree
             return Result(num_nodes, ancestor)
         return helper_fun(root, p, q).ancestor
             
