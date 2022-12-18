@@ -1,38 +1,25 @@
-#input vala section
-# We are given n
-from platform import node
+n= int(input())
+boss_arr = list(map(int, input().split()))
 
-
-n = int(input())
-
-bossArray = list(map(int, input().split()))
 class Node:
     def __init__(self, data = None):
-        self.key = data
-        self.child = []
-        self.underlings = 0
- 
-i = 2
+        self.employee_code = data
+        self.direct_underlings = []
+        self.team_size = 0
+
 nodeArray = [Node(x) for x in range(n+1)]
-for x in bossArray: 
-    nodeArray[x].child.append(nodeArray[i])
-    i+=1
-# We might implement some sort of DFS here:
-def dfsChildUnder(node, parent):
-    
-    if(node==None):
-        return 0
-    peopleUnderNode=0
-    
-    for x in node.child:
-        if x!=parent:
-            peopleUnderNode += dfsChildUnder(x, node)
-    node.underlings= peopleUnderNode
-    return peopleUnderNode+1
-dfsChildUnder(nodeArray[1], -1)
-for x in range(1, n+1):
-    print(nodeArray[x].underlings, end=" ")
-
-
-
-
+for index, boss in enumerate(boss_arr): 
+    if index>n:
+        break
+    nodeArray[boss].direct_underlings.append(index+2)
+def dfs_helper(node_idx):
+    node = nodeArray[node_idx]
+    team_size = 0
+    for x in node.direct_underlings:
+        team_size+= dfs_helper(x)
+    node.team_size = team_size+1
+    return team_size+1
+dfs_helper(1)
+for i in range(1, n+1):
+    print(nodeArray[i].team_size-1 ,end=' ')
+print()
