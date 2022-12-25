@@ -15,4 +15,9 @@ def combinations(n :int,k :int) -> List[List[int]]:
             return
         ## Generate remaining combinations over [offset, n-1] of size nums_remaining.
         nums_remaining = k - len(partial_combination)
-        
+        i = offset 
+        while i<=n and nums_remaining<= n-i+1:
+            directed_combination(i+1, partial_combination+[i])
+            i+=1
+    directed_combination(1, [])
+    return result
