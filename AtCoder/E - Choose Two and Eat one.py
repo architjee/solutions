@@ -20,3 +20,4 @@ while len(max_heap)>=2:
     second_max = max_heap.exatract_max()
     
 print(len(max_heap))
+## Apparently this problem is graph question.
