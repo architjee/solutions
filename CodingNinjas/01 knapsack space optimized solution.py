@@ -6,13 +6,13 @@ from math import *
 ## Ops
 def main(n, weights, prices, max_capacity):
     # print('prices and weights is ',weights, prices)
-    matrix = [[0]*(max_capacity+1) for x in range(2)]
-    for i in range(n+1):
+    matrix = [[0]*(max_capacity+1) for x in range(1)]
+    for i in range(n):
         for avail_capacity in reversed(range(max_capacity+1)):
             without_this_item = matrix[i%1-1][avail_capacity]
             with_this_item = (prices[i-1]+ matrix[i%1-1][avail_capacity-weights[i-1]]) if avail_capacity>=weights[i-1] else 0
-            matrix[i][avail_capacity]= max(without_this_item, with_this_item)
-    print(matrix[0][-1])
+            matrix[i%1][avail_capacity]= max(without_this_item, with_this_item)
+    print(matrix[-1][-1])
 
 
 ## Read input as specified in the question.
