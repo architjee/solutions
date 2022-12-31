@@ -5,30 +5,18 @@ from math import *
 
 ## Ops
 def main(n, weights, prices, max_capacity):
-    d ={}
-    def extract_max_price(ending_idx, avail_capacity):
-        if avail_capacity<=0:
-            return 0
-        if ending_idx<0:
-            return 0
-        without_this_item = 0
-        with_this_item = 0
-        key = (ending_idx, avail_capacity)
-        if key not in d:
-            if avail_capacity>=weights[ending_idx]:
-                with_this_item = prices[ending_idx]+ extract_max_price(ending_idx-1, avail_capacity- weights[ending_idx])
-            without_this_item = extract_max_price(ending_idx-1, avail_capacity)
-            d[key]= max(without_this_item, with_this_item)
-        return d[key]
-    print(extract_max_price(n-1 , max_capacity))
-    ## Below is my attempt to make it bottom up using a matrix.
-    matrix = [[-1 for _ in max_capacity] for x in range(n)]
-    for i in reversed(range(n)):
-        for avail_capacity in (1, max_capacity):
-            without_this_item = matrix[i-1][avail_capacity] if i>0 else 0
-            with_this_item =  matrix[i][avail_capacity] if avail_capacity>=weights[i] else 0
-            matrix[i][avail_capacity]= max(without_this_item, with_this_item)
-            
+    # print('prices and weights is ',weights, prices)
+    matrix = [[0]*(max_capacity+1) for x in range(n+1)]
+    for i in range(n+1):
+        for avail_capacity in range(max_capacity+1):
+            if i==0 or avail_capacity==0:
+                matrix[i][avail_capacity] = 0
+            else:
+                without_this_item = matrix[i-1][avail_capacity]
+                with_this_item = (prices[i-1]+ matrix[i-1][avail_capacity-weights[i-1]]) if avail_capacity>=weights[i-1] else 0
+                matrix[i][avail_capacity]= max(without_this_item, with_this_item)
+    print(matrix[-1][-1])
+
 
 ## Read input as specified in the question.
 t = int(input())
