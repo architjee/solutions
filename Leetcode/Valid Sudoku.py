@@ -1,7 +1,7 @@
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         result = True
-        
+    
         for x in range(9):
             result = result and self.validateRow(x, board)
             result = result and self.validateColumn(x, board)
