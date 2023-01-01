@@ -17,6 +17,7 @@ class Solution:
            6, 3, 9,6 , board) and self.validateCoordinates(
            6, 6, 9,9 , board)
         return result
+        ## random comment
     def validateRow(self,row, board):
         return self.validateCoordinates( row, 0, row+1, 9, board)
         
