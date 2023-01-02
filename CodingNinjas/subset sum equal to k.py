@@ -9,7 +9,12 @@ def subsetSumToK(n, k, arr):
     # Return a boolean variable 'True' or 'False' denoting the answer
     d= {}
     def mox(idx, k):
-        if k<0 or idx<0:
+        if idx<0 and not k:
+            return True
+
+        elif idx<0: 
+            return False
+        if k<0 :
             return False
         key = (idx, k)
         if key not in d:
@@ -22,6 +27,7 @@ def subsetSumToK(n, k, arr):
             d[key] = False
         return d[key]
     return mox(len(arr)-1, k)
+print(subsetSumToK(4, 5, [4,3,2,1]))
     
     
 
