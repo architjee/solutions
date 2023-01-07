@@ -21,7 +21,7 @@ class DataStream:
         return False
 
 
-
+## WARNING WRONG FILE DELETE THIS
 # Your DataStream object will be instantiated and called as such:
 # obj = DataStream(value, k)
 # param_1 = obj.consec(num)
