@@ -1,6 +1,15 @@
 # Solutions
 
 Solutions is a repository containing my practice questions from all platforms I could get my hands-on.
+Some of them are : 
+- Hackerrank
+- Codeforces
+- Hackerearth
+- Leetcode
+- Coding Ninjas
+- Coding Blocks
+- GeeksForGeeks
+and many more.
 
 
 
