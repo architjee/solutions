@@ -27,4 +27,7 @@ def dfs(node, consecutive_red):
     if len(node.children)==0:
         total_leafs+=1  
     return total_leafs
-print(dfs(node_array[1], 0))
+if n==1:
+    print(1)
+else:
+    print(dfs(node_array[1], 0))
